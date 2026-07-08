@@ -1,0 +1,8 @@
+{
+  "name": "password_generator",
+  "description": "Strong random passwords banata hai (secrets module, cryptographically secure). stdin par length de sakte ho, default 16",
+  "version": "1.0.0",
+  "author": "Maya Team",
+  "type": "python",
+  "requirements": []
+}

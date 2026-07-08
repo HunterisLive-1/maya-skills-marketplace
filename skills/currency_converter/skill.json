@@ -1,0 +1,8 @@
+{
+  "name": "currency_converter",
+  "description": "Live exchange rates se currency convert karta hai (open.er-api.com, free). stdin: '100 USD INR' format, default '1 USD INR'",
+  "version": "1.0.0",
+  "author": "Maya Team",
+  "type": "python",
+  "requirements": []
+}

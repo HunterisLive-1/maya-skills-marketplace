@@ -1,0 +1,8 @@
+{
+  "name": "system_health_report",
+  "description": "PC ka full health report: CPU cores, RAM usage, disk space, battery aur uptime — sab ek saath",
+  "version": "1.0.0",
+  "author": "Maya Team",
+  "type": "python",
+  "requirements": []
+}

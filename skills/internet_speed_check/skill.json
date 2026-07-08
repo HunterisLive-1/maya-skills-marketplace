@@ -1,0 +1,8 @@
+{
+  "name": "internet_speed_check",
+  "description": "Quick internet download-speed check (5 MB test file download karke Mbps measure karta hai) + ping latency",
+  "version": "1.0.0",
+  "author": "Maya Team",
+  "type": "python",
+  "requirements": []
+}

@@ -1,0 +1,63 @@
+{
+  "marketplace": "Maya Skills Marketplace",
+  "version": 1,
+  "updated": "2026-07-09",
+  "repo": "HunterisLive-1/maya-skills-marketplace",
+  "branch": "main",
+  "skills": [
+    {
+      "name": "currency_converter",
+      "description": "Live exchange rates se currency convert karta hai (open.er-api.com, free). stdin: '100 USD INR' format, default '1 USD INR'",
+      "version": "1.0.0",
+      "author": "Maya Team",
+      "type": "python",
+      "path": "skills/currency_converter",
+      "sha256": "4e19e7488adacc60d99970b6d8b40678a67647bbd8f18037a40c310000f4af4e"
+    },
+    {
+      "name": "email_writing_pro",
+      "description": "Professional email writing guide — Maya ko perfect business emails likhna sikhata hai (Hinglish briefing, English output)",
+      "version": "1.0.0",
+      "author": "Maya Team",
+      "type": "prompt",
+      "path": "skills/email_writing_pro",
+      "sha256": "d7db533c355f4539c9b124cddee0a8d599c296c73b38191fbc187ceeda26a1fa"
+    },
+    {
+      "name": "internet_speed_check",
+      "description": "Quick internet download-speed check (5 MB test file download karke Mbps measure karta hai) + ping latency",
+      "version": "1.0.0",
+      "author": "Maya Team",
+      "type": "python",
+      "path": "skills/internet_speed_check",
+      "sha256": "a8f6fd9d57907b91fe1ad02236becadfb79db733ee301f760db5b45e5f15ae51"
+    },
+    {
+      "name": "interview_prep_coach",
+      "description": "Interview preparation coach — mock interviews, STAR-method answers, aur company research checklist ke saath Boss ko interview ke liye ready karta hai",
+      "version": "1.0.0",
+      "author": "Maya Team",
+      "type": "prompt",
+      "path": "skills/interview_prep_coach",
+      "sha256": "9423424f25977899f5f1521fe7f7b44ed67ac4f4bee0c0d059754ad7741552db"
+    },
+    {
+      "name": "password_generator",
+      "description": "Strong random passwords banata hai (secrets module, cryptographically secure). stdin par length de sakte ho, default 16",
+      "version": "1.0.0",
+      "author": "Maya Team",
+      "type": "python",
+      "path": "skills/password_generator",
+      "sha256": "fd251536e4362d213e1e3dfe53899c242a109fc0d31eb0192d1bed256919d778"
+    },
+    {
+      "name": "system_health_report",
+      "description": "PC ka full health report: CPU cores, RAM usage, disk space, battery aur uptime — sab ek saath",
+      "version": "1.0.0",
+      "author": "Maya Team",
+      "type": "python",
+      "path": "skills/system_health_report",
+      "sha256": "cfc7a101c767eaa34572ef08a7a156fe69b8b11603dc95780408fad4ac192a5f"
+    }
+  ]
+}
