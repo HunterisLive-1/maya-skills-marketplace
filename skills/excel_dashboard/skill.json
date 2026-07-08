@@ -1,0 +1,8 @@
+{
+  "name": "excel_dashboard",
+  "description": "Excel/CSV file se ek sundar self-contained HTML dashboard banata hai — stat tiles, bar chart aur data preview. stdin: file ka full path. Dashboard Desktop par save + browser mein khulta hai",
+  "version": "1.0.0",
+  "author": "Maya Team",
+  "type": "python",
+  "requirements": ["pandas", "openpyxl"]
+}

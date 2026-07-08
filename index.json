@@ -24,6 +24,15 @@
       "sha256": "d7db533c355f4539c9b124cddee0a8d599c296c73b38191fbc187ceeda26a1fa"
     },
     {
+      "name": "excel_dashboard",
+      "description": "Excel/CSV file se ek sundar self-contained HTML dashboard banata hai — stat tiles, bar chart aur data preview. stdin: file ka full path. Dashboard Desktop par save + browser mein khulta hai",
+      "version": "1.0.0",
+      "author": "Maya Team",
+      "type": "python",
+      "path": "skills/excel_dashboard",
+      "sha256": "2261658157d9c9be7c170a147bc0891cdf8d15a71ab6e511dc33db0ab9a219dd"
+    },
+    {
       "name": "internet_speed_check",
       "description": "Quick internet download-speed check (5 MB test file download karke Mbps measure karta hai) + ping latency",
       "version": "1.0.0",
@@ -49,6 +58,24 @@
       "type": "python",
       "path": "skills/password_generator",
       "sha256": "fd251536e4362d213e1e3dfe53899c242a109fc0d31eb0192d1bed256919d778"
+    },
+    {
+      "name": "pdf_maker",
+      "description": "Text/markdown se sundar styled PDF banata hai (Edge headless se, koi extra library nahi chahiye). stdin: pehli line 'TITLE: ...' + content. PDF Desktop par save hota hai",
+      "version": "1.0.0",
+      "author": "Maya Team",
+      "type": "python",
+      "path": "skills/pdf_maker",
+      "sha256": "bb6c32090217d1973711afb84a9eb7e3c1198aa39db301b6f73528d7d35f93a7"
+    },
+    {
+      "name": "research_planner",
+      "description": "Research & planning coach — kisi bhi topic pe structured research karke professional action plan likhne ka poora method Maya ko sikhata hai",
+      "version": "1.0.0",
+      "author": "Maya Team",
+      "type": "prompt",
+      "path": "skills/research_planner",
+      "sha256": "edc6127776d05efb063a7b80d38e42fb2b5203b30cd8ac62d3b78edb9025e829"
     },
     {
       "name": "system_health_report",

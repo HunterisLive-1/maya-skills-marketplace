@@ -1,0 +1,8 @@
+{
+  "name": "pdf_maker",
+  "description": "Text/markdown se sundar styled PDF banata hai (Edge headless se, koi extra library nahi chahiye). stdin: pehli line 'TITLE: ...' + content. PDF Desktop par save hota hai",
+  "version": "1.0.0",
+  "author": "Maya Team",
+  "type": "python",
+  "requirements": []
+}
