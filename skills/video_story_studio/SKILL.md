@@ -1,119 +1,100 @@
 # Video Story Studio
 
-**Kab use karo:** Jab Boss kisi topic par video content maange — "X pe video banao", "Y minute ki video ke liye script/story banao", "voiceover aur video prompts banao", "faceless video content", "reel/short/YouTube video ke liye clips aur narration", "AI video (Sora/Veo/Runway/Kling) ke liye prompts banao". Yeh skill ek poora video package banati hai: research + full story + timed voiceover + scene-by-scene video-clip prompts — sab Desktop ke ek folder mein.
+**Kab use karo:** Jab Boss kisi topic par video content maange — "X pe video banao", "Y minute ki video ke liye script/story banao", "voiceover aur scene prompts banao", "faceless video content", "reel/short/YouTube video ke liye clips aur narration", "AI video (Sora/Veo/Runway/Kling) ke liye prompts banao". Yeh skill ek strong story ko scene-by-scene todkar Desktop ke ek folder mein **4 plain `.txt` files** deti hai — script, scene prompts, aur do voiceover files.
 
-## Pehle 2 cheezein confirm karo (agar Boss ne nahi batayi)
+## Pehle yeh confirm karo (jo Boss ne na bataya ho)
 1. **Topic** — kis cheez pe video hai.
-2. **Duration** — video kitni lambi (seconds ya minutes). Yahi sab kuch decide karti hai.
-3. (Optional) Tone/platform — YouTube long, Reel/Short, documentary, motivational, horror, etc. Na bataye to default: engaging + cinematic. Language: Boss jis mein baat kare (default English narration).
+2. **Duration** — video kitni lambi (seconds/minutes). Yahi scene count decide karti hai.
+3. **Voiceover ki LANGUAGE** — narration kis bhaasha mein ho (Bengali, Hindi, Urdu, English…). **Yeh zaroor poochho ya Boss ke ishaare se pakdo** — voiceover isi language mein likhni hai. Scene prompts hamesha **English** mein.
+4. (Optional) Genre/tone/platform — horror, motivational, documentary, reel/short vs long. Na bataye to engaging + cinematic default.
 
-Duration na mile to **maang lo** — uske bina scene count aur word budget nikal hi nahi sakte.
+Duration ya language na mile to **maang lo** — inke bina sahi output ban hi nahi sakta.
 
 ## Step 1 — Desktop par short-naam ka folder banao
-Topic se ek **chhota (1-3 shabd) naam** nikaalo aur Desktop par usi naam ka naya folder banao.
-- "how black holes are formed" → `Black_Holes`
-- "history of the Roman Empire" → `Roman_Empire`
-- "10 tips to save money" → `Money_Tips`
-Saari files isi folder ke **andar** banengi. Folder ka poora path yaad rakho (e.g. `Desktop\Black_Holes`) — subagents ko exact path dena zaroori hai.
+Topic se ek **chhota (1-3 shabd) naam** nikaalo aur Desktop par usi naam ka naya folder banao ("the well that whispered after fajr" → `Whispering_Well`). Saari files isi folder ke **andar** banengi. Folder ka poora path yaad rakho (e.g. `Desktop\Whispering_Well`) — subagents ko exact path dena zaroori hai.
 
-## Step 2 — Duration se maths nikaalo (yeh sab ka base hai)
-- **Voiceover words** ≈ duration(seconds) × **2.5** (≈150 words/min natural pace).
-- **Number of scenes/clips** ≈ duration(seconds) ÷ **5** (AI video clips ~5s each), upar round karo. Zyada action ho to 4s, calm ho to 8s — beech mein adjust karo.
-- Har scene ko ek narration line + ek video prompt milega, sab aapas mein match karein.
+## Step 2 — Duration se scene count nikaalo
+- **Scenes ≈ duration(seconds) ÷ 5** (har AI video clip ~5s), upar round karo. Har scene = **ek narration line + ek scene prompt**.
 
-| Duration | ~Words (voiceover) | ~Scenes/clips |
-|----------|--------------------|---------------|
-| 30 sec   | ~75                | ~6            |
-| 60 sec   | ~150               | ~12           |
-| 3 min    | ~450               | ~36           |
-| 5 min    | ~750               | ~60           |
-| 10 min   | ~1500              | ~120          |
+| Duration | ~Scenes |
+|----------|---------|
+| 30 sec   | ~6      |
+| 60 sec   | ~12     |
+| 2.5 min  | ~30     |
+| 5 min    | ~60     |
+| 10 min   | ~120    |
 
-Bade video (5+ min / 40+ scenes) me scenes ko chunks me baanto (10-12 scenes per subagent) taaki har file complete aur detailed rahe — kabhi "baaki same" likh ke chhota mat karo.
+Bade video (40+ scenes) ko chunks me baanto (10-12 scenes per subagent) taaki har scene detailed rahe — kabhi "baaki same"/"repeat" mat likho, jitne scenes required utne poore.
 
-## Step 3 — SERP se research karo (plain search only, koi document nahi)
-Topic par **web/SERP search** se research karo — 6-10 solid, sahi facts, numbers, dates, aur 2-3 killer hook angles. Galat fact mat likho; jo confirm ho wahi use karo. Yeh research story ko accurate aur voiceover ko credible banati hai.
+## Step 3 — Research (SIRF jab topic factual ho)
+Agar topic real/factual hai (history, science, real event) to **web/SERP search** se 5-8 verified facts nikaalo taaki story sahi rahe. ⚠️ **Research ke liye `research_agent` ya koi document-banane wala tool (Word/PDF/`.docx`) BILKUL mat use karo** — wo bekaar ka doc bana deta hai jo Boss ne maanga hi nahi. Sirf `search_web`. Fiction/horror/story topic ho to research skip — seedhe creative story likho. **Koi research.txt file mat banao** — output sirf niche wali 4 files hain.
 
-⚠️ **Bahut zaroori:** Research ke liye SIRF web/SERP **search** karo. `research_agent` ya koi bhi **document-banane wala tool** (Word/PDF/PPT/Excel/`.docx`) **bilkul mat** use karo — wo tool hamesha ek Word/PDF file bana deta hai, jo Boss ne nahi maangi ("jabardasti ke docs"). Yeh skill ka output SIRF plain `.txt` files hain. Research ka nateeja seedhe `research.txt` mein likho.
+## Step 4 — Scene list LOCK karo (sab ka source of truth)
+Ek numbered **scene list** fix karo, narrative order mein, jisme har scene ki (a) narration aur (b) visual dono clear hon:
+- **Scene 1 = HOOK:** pehla scene aisa ho jo turant pakad le — ek eerie image ya bold line. Boring intro nahi.
+- **Beech ke scenes:** kahani ko step-by-step build karo, tension badhao, har scene ek aage badhta beat.
+- **Aakhri scene = OUTRO:** satisfying/haunting close ya twist. Kabhi adhoora mat chhodo.
+Yahi ek locked list se teeno files banengi taaki sab **perfectly sync** rahein (scene 5 ka prompt = scene 5 ki narration).
 
-## Step 4 — Master structure LOCK karo (sabse important)
-Voiceover aur video-prompts **same scenes** pe bane, isliye pehle ek numbered **scene list** fix karo — narrative order mein, hook se outro tak:
-- **Hook (Scene 1):** pehle 3 second ka scroll-stopper — ek daring question, shocking fact, ya bold claim. Boring intro bilkul nahi.
-- **Body (Scenes 2..N-1):** story/points logical flow mein, tension build karti hui, research ke facts ke saath.
-- **Outro (last scene):** satisfying close + CTA ("subscribe/follow", ya thought-provoking last line).
-Yeh locked scene list hi story.txt, voiceover aur prompts — teeno ka source of truth hai.
+## Step 5 — 4 files banao (bhaari kaam SUBAGENTS se, sirf `.txt`)
+Boss ne kaha "subagents ke help se" — writing subagents ko do. Subagent ke paas **koi context nahi**, isliye har subagent ke task me **poora likho:** exact folder path, topic, language, poori locked scene list (numbered, narration + visual dono), aur yeh line: **"Output SIRF plain `.txt` file `write_file` se likho — `research_agent` / Word / PDF / `.docx` koi document tool mat use karo."** Warna subagent bina maange doc bana dega.
 
-## Step 5 — 4 files banao (bhaari kaam SUBAGENTS se)
-Boss ne kaha "subagents ke help se" — to writing subagents ko do. Subagent ke paas tumhaara **koi context nahi**, isliye har subagent ke task me yeh sab **poora likho:** exact folder path, topic, duration, word/scene budget, aur poori locked scene list. Ek do-chhoti file (research + story) khud likh sakti ho; do bhaari derived files (voiceover + video prompts) parallel subagents se — dono ko wahi scene list do.
+Banane wali **4 files** (sab folder ke andar) — format bilkul isi tarah:
 
-⚠️ **Har subagent task me yeh line zaroor daalo:** "Output SIRF plain `.txt` file(s) hon — `write_file` se likho. `research_agent`, `create_document`, ya koi bhi Word/PDF/PPT/`.docx` banane wala tool bilkul mat use karo." Warna subagent apne aap document bana deta hai (jo Boss ne nahi maangi). Yeh skill sirf `.txt` deti hai.
-
-Banane wali files (sab folder ke andar, `.txt`):
-
-**1. `research.txt`** — topic, 6-10 verified facts (bullets), hook angles, sources, tone/platform note.
-
-**2. `story.txt`** — poori story, ek continuous engaging narrative:
+**1. `script.txt`** — master file. Title + numbered scenes; har scene mein narration (target language) + scene prompt (English):
 ```
-TITLE: <catchy title>
-DURATION: <e.g. 60s>  |  PLATFORM/TONE: <...>
+Title: <catchy title>
 
-HOOK (0:00–0:03):
-<3-second scroll-stopper>
+1.
+<Language> Voiceover: <scene 1 ki narration, target language me — hook>
+Scene Prompt: <detailed English visual: subject + action + setting + camera move + lighting + mood + style, cinematic, ultra realistic, 4k>
 
-STORY:
-<poora flowing narrative, hook se build karta hua, research ke facts ke saath>
-
-OUTRO:
-<satisfying close + CTA / punchy last line>
+2.
+<Language> Voiceover: <scene 2 narration>
+Scene Prompt: <detailed English prompt>
+... (har scene ke liye, scene N tak) ...
 ```
 
-**3. `voiceover_script.txt`** — record-ready narration, scene ke hisaab se timed:
+**2. `video scene prompt.txt`** — sirf scene prompts, **ek line me ek prompt**, na number na label (AI video tool me seedha paste karne ke liye):
 ```
-=== VOICEOVER SCRIPT — <Title> (<duration>) ===
-Total words: <~N>  |  Pace: ~150 wpm
-
-[Scene 1 | 0:00–0:05]  (HOOK)
-Narration: "<exact words to speak — scene ki length me fit>"
-Delivery: <tone/pace note, e.g. punchy, mysterious, slow>
-
-[Scene 2 | 0:05–0:10]
-Narration: "..."
-Delivery: ...
-... (har scene ke liye) ...
-
---- FULL CONTINUOUS SCRIPT (one-take recording) ---
-<saari narration lines joined, natural flow me>
+<scene 1 ka full English prompt>
+<scene 2 ka full English prompt>
+... (har scene, ek line) ...
 ```
-Har scene ki narration us scene ki **seconds × 2.5** words ke aas-paas rakho — na zyada, na kam.
 
-**4. `video_prompts.txt`** — har scene ke liye ek **detailed AI-video-generation prompt** (Sora/Veo/Runway/Kling style), voiceover line se match karta hua:
+**3. `voiceover_prompts.txt`** — Title + numbered voiceover lines (target language), script.txt se hu-ba-hu match:
 ```
-=== VIDEO CLIP PROMPTS — <Title> ===
-Aspect ratio: <9:16 short / 16:9 long>  |  Style: <cinematic/anime/realistic/...>
+Title: <title> - <Language> Voiceovers
 
-[Scene 1 | ~5s]  (matches VO Scene 1)
-Prompt: <subject + action + setting + camera movement (dolly/pan/aerial) + lighting + mood + color palette + film style>. Highly detailed, <aspect ratio>, cinematic.
-Negative: <text, watermark, distorted, low-res>
+1.
+<scene 1 narration>
 
-[Scene 2 | ~5s]
-Prompt: ...
-... (har scene ke liye, jitne required hain utne — no shortcuts) ...
+2.
+<scene 2 narration>
+... (blank line se alag, har scene) ...
 ```
-Har prompt self-contained aur bharpoor detail wala ho — koi model bhi bina extra context ke clip bana sake.
+
+**4. `voiceover_scene.txt`** — sirf voiceover, **ek line me ek scene**, na number na title — ek smooth, polished continuous narration (TTS/recording ready), scene order mein:
+```
+<scene 1 narration, thoda smooth kiya hua>
+<scene 2 narration>
+... (har scene ek line) ...
+```
+
+Teeno voiceover jagah (script.txt, voiceover_prompts.txt, voiceover_scene.txt) ki narration **same target language** me ho aur same scene order follow kare. Scene prompts har jagah **English** me.
 
 ## Step 6 — Report karo
-Sab ban jaaye to Boss ko chhoti Hinglish line me batao: folder ka naam, kitne scenes/clips bane, aur files ready hain. Subagents background me hon to bolo "ban rahi hai, ho jaate hi batati hoon" — result aa jaayega tab confirm karo.
+Sab ban jaaye to Boss ko chhoti Hinglish line me batao: folder naam, kitne scenes bane, 4 files ready. Subagents background me hon to bolo "ban rahi hai, ho jaate hi batati hoon".
 
 ## Example
-Boss: *"Titanic ke doobне pe 60 second ki YouTube short banao."*
-→ Folder `Desktop\Titanic`. Maths: ~150 words, ~12 scenes. SERP se Titanic facts (date 1912, iceberg, ~1500 died, band bajta raha). Scene list lock: Hook "What if the 'unsinkable' ship's last night was a warning we ignored?" → 10 body scenes (departure, iceberg warning ignored, collision, chaos, lifeboats, band, sinking, cold water, dawn, aftermath) → Outro "Some legends are built to remind us: pride sinks ships. Follow for more." Phir research.txt + story.txt khud; voiceover_script.txt aur video_prompts.txt do parallel subagents se (dono ko yahi 12-scene list + path diya).
+Boss: *"Fajr ke baad ek haunted kuen pe 2.5 min ki Bengali horror video banao."*
+→ Folder `Desktop\Whispering_Well`. ~30 scenes. Fiction hai to research skip. Scene 1 hook: village Fajr ke baad silent, ek fisfisahat. 30 scenes tak kahani build (kuan khulta hai, aawaz, ifrit, imam, seal band). Aakhri scene outro: seal pe andar se geeli ungliyon ke nishaan. Phir 4 files — script.txt (Bengali Voiceover + English Scene Prompt per scene), video scene prompt.txt (30 English prompts, ek line each), voiceover_prompts.txt (numbered Bengali), voiceover_scene.txt (30 Bengali lines, smooth) — sab subagents se, sirf `.txt`.
 
 ## Kya NAHI karna
-- **Koi Word/PDF/PPT/`.docx` document mat banao** — na khud, na subagent se. `research_agent` aur document-builder tools se door raho. Is skill ka output SIRF 4 plain `.txt` files hain. Extra "docs" = bug.
-- Duration ke bina scenes/words guess mat karo — pehle poochho.
-- Desktop ka folder mat bhoolo; files kahin aur mat banao — sab short-naam folder ke andar.
-- Voiceover aur video prompts ke scenes alag mat hone do — dono locked scene list se.
-- Prompts ya narration ko "…same pattern repeat" ya "baaki khud kar lena" likh ke chhota mat karo — jitne scenes required hain, utne poore likho.
-- Hook ko boring mat banao (koi "Hello guys, aaj hum baat karenge…" nahi). Outro kabhi mat chhodo.
-- Subagent ko aधूra task mat do — exact path, scene list, budget sab likho, warna wo galat jagah/galat cheez bana dega.
-- Facts galat mat likho — jo SERP se confirm ho wahi.
+- **Koi Word/PDF/PPT/`.docx` mat banao** — na khud na subagent se. `research_agent` aur doc-builders se door. Output SIRF 4 plain `.txt` files. Extra "docs" = bug. Koi research.txt bhi nahi.
+- Voiceover ki language guess mat karo — poochho. English me mat likho agar Boss ne doosri language maangi.
+- Duration ke bina scene count guess mat karo — pehle poochho.
+- Scenes ko file-to-file mismatch mat hone do — ek locked scene list se teeno files.
+- "…same repeat" / "baaki khud kar lena" likh ke chhota mat karo — jitne scenes required, utne poore likho.
+- Scene 1 (hook) boring mat banao; aakhri scene (outro) kabhi mat chhodo.
+- Subagent ko adhoora task mat do — exact path, language, poori scene list, aur "sirf .txt, koi doc nahi" — sab likho.

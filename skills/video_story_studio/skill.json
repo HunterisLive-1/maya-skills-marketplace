@@ -1,7 +1,7 @@
 {
   "name": "video_story_studio",
-  "description": "Faceless/AI video content ka poora studio — Boss topic + video duration deta hai, Maya SERP se research karke Desktop par ek chhote-naam ke folder mein 4 files banati hai: research, full story (strong hook + outro), timed voiceover script, aur scene-by-scene detailed video-clip prompts. Bhaari kaam subagents se karti hai.",
-  "version": "1.1.0",
+  "description": "Faceless/AI video content ka studio — Boss topic + duration + voiceover language deta hai, Maya story ko scene-by-scene todkar Desktop ke short-naam folder mein 4 plain .txt files banati hai: script.txt (per-scene voiceover + English scene prompt), video scene prompt.txt (prompts, ek line each), voiceover_prompts.txt (numbered narration), voiceover_scene.txt (smooth TTS-ready narration). Bhaari kaam subagents se; koi Word/PDF/docs nahi.",
+  "version": "1.2.0",
   "author": "Maya Team",
   "type": "prompt",
   "requirements": []
