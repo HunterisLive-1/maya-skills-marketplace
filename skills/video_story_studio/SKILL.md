@@ -31,8 +31,10 @@ Saari files isi folder ke **andar** banengi. Folder ka poora path yaad rakho (e.
 
 Bade video (5+ min / 40+ scenes) me scenes ko chunks me baanto (10-12 scenes per subagent) taaki har file complete aur detailed rahe — kabhi "baaki same" likh ke chhota mat karo.
 
-## Step 3 — SERP se research karo
-Topic par **web/SERP se research** karo — 6-10 solid, sahi facts, numbers, dates, aur 2-3 killer hook angles. Galat fact mat likho; jo confirm ho wahi use karo. Yeh research story ko accurate aur voiceover ko credible banati hai.
+## Step 3 — SERP se research karo (plain search only, koi document nahi)
+Topic par **web/SERP search** se research karo — 6-10 solid, sahi facts, numbers, dates, aur 2-3 killer hook angles. Galat fact mat likho; jo confirm ho wahi use karo. Yeh research story ko accurate aur voiceover ko credible banati hai.
+
+⚠️ **Bahut zaroori:** Research ke liye SIRF web/SERP **search** karo. `research_agent` ya koi bhi **document-banane wala tool** (Word/PDF/PPT/Excel/`.docx`) **bilkul mat** use karo — wo tool hamesha ek Word/PDF file bana deta hai, jo Boss ne nahi maangi ("jabardasti ke docs"). Yeh skill ka output SIRF plain `.txt` files hain. Research ka nateeja seedhe `research.txt` mein likho.
 
 ## Step 4 — Master structure LOCK karo (sabse important)
 Voiceover aur video-prompts **same scenes** pe bane, isliye pehle ek numbered **scene list** fix karo — narrative order mein, hook se outro tak:
@@ -43,6 +45,8 @@ Yeh locked scene list hi story.txt, voiceover aur prompts — teeno ka source of
 
 ## Step 5 — 4 files banao (bhaari kaam SUBAGENTS se)
 Boss ne kaha "subagents ke help se" — to writing subagents ko do. Subagent ke paas tumhaara **koi context nahi**, isliye har subagent ke task me yeh sab **poora likho:** exact folder path, topic, duration, word/scene budget, aur poori locked scene list. Ek do-chhoti file (research + story) khud likh sakti ho; do bhaari derived files (voiceover + video prompts) parallel subagents se — dono ko wahi scene list do.
+
+⚠️ **Har subagent task me yeh line zaroor daalo:** "Output SIRF plain `.txt` file(s) hon — `write_file` se likho. `research_agent`, `create_document`, ya koi bhi Word/PDF/PPT/`.docx` banane wala tool bilkul mat use karo." Warna subagent apne aap document bana deta hai (jo Boss ne nahi maangi). Yeh skill sirf `.txt` deti hai.
 
 Banane wali files (sab folder ke andar, `.txt`):
 
@@ -105,6 +109,7 @@ Boss: *"Titanic ke doobне pe 60 second ki YouTube short banao."*
 → Folder `Desktop\Titanic`. Maths: ~150 words, ~12 scenes. SERP se Titanic facts (date 1912, iceberg, ~1500 died, band bajta raha). Scene list lock: Hook "What if the 'unsinkable' ship's last night was a warning we ignored?" → 10 body scenes (departure, iceberg warning ignored, collision, chaos, lifeboats, band, sinking, cold water, dawn, aftermath) → Outro "Some legends are built to remind us: pride sinks ships. Follow for more." Phir research.txt + story.txt khud; voiceover_script.txt aur video_prompts.txt do parallel subagents se (dono ko yahi 12-scene list + path diya).
 
 ## Kya NAHI karna
+- **Koi Word/PDF/PPT/`.docx` document mat banao** — na khud, na subagent se. `research_agent` aur document-builder tools se door raho. Is skill ka output SIRF 4 plain `.txt` files hain. Extra "docs" = bug.
 - Duration ke bina scenes/words guess mat karo — pehle poochho.
 - Desktop ka folder mat bhoolo; files kahin aur mat banao — sab short-naam folder ke andar.
 - Voiceover aur video prompts ke scenes alag mat hone do — dono locked scene list se.
