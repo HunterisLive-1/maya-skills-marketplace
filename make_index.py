@@ -1,9 +1,23 @@
 """Generate index.json for the Maya Skills Marketplace.
 
-Scans skills/*/ folders, reads each skill.json, computes the directory sha256
-(same algorithm as Maya's skill_installer.dir_sha256) and writes index.json.
+Scans skills/*/ folders, reads each skill.json, computes the directory sha256 and
+writes index.json.  Run after adding or editing any skill:  python make_index.py
 
-Run after adding or editing any skill:  python make_index.py
+WHY THE HASH IS NORMALISED
+--------------------------
+This script used to hash the raw bytes of the working copy — the same algorithm
+Maya's ``skill_installer.dir_sha256`` uses.  That looks correct and is not: git
+rewrites line endings on checkout (``core.autocrlf``), so a skill is CRLF in a
+Windows working copy and LF in the zipball ``codeload.github.com`` serves to
+Maya.  The two hash differently, and on 2026-08-13 **every one of the ten
+published skills** failed installation with "Hash verification FAILED — skill
+files index se match nahi karte", which reads to the user like tampering.
+
+So the hash written here normalises every file to LF first.  That value is
+checkout-independent: it is what Maya computes over a freshly downloaded zipball
+whatever git did to this machine's working copy.
+
+Never hand-edit a sha256 in index.json — run this script.
 """
 import hashlib
 import json
@@ -17,12 +31,13 @@ BRANCH = "main"
 
 
 def dir_sha256(folder: Path) -> str:
+    """Deterministic hash of a skill folder: sorted relpaths + LF-normalised bytes."""
     h = hashlib.sha256()
     for fp in sorted(folder.rglob("*")):
         if fp.is_file():
             rel = fp.relative_to(folder).as_posix()
             h.update(rel.encode("utf-8") + b"\0")
-            h.update(fp.read_bytes())
+            h.update(fp.read_bytes().replace(b"\r\n", b"\n"))
             h.update(b"\0")
     return h.hexdigest()
 
@@ -56,9 +71,10 @@ def main():
         "branch": BRANCH,
         "skills": entries,
     }
-    (ROOT / "index.json").write_text(
-        json.dumps(index, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
-    )
+    # newline="\n": this file is checked out on Windows too, and letting Python
+    # translate to CRLF makes every regeneration a whole-file diff.
+    with (ROOT / "index.json").open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(index, indent=2, ensure_ascii=False) + "\n")
     print(f"\nindex.json written with {len(entries)} skills.")
 
 

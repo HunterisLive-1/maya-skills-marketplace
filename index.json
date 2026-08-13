@@ -1,7 +1,7 @@
 {
   "marketplace": "Maya Skills Marketplace",
   "version": 1,
-  "updated": "2026-07-12",
+  "updated": "2026-08-13",
   "repo": "HunterisLive-1/maya-skills-marketplace",
   "branch": "main",
   "skills": [
@@ -12,7 +12,7 @@
       "author": "Maya Team",
       "type": "python",
       "path": "skills/currency_converter",
-      "sha256": "98b12dcdc23b77a2a1375b8644ec9ae74f962c8503ac5cf29bcd7760fddfe04e"
+      "sha256": "4e19e7488adacc60d99970b6d8b40678a67647bbd8f18037a40c310000f4af4e"
     },
     {
       "name": "email_writing_pro",
@@ -21,7 +21,7 @@
       "author": "Maya Team",
       "type": "prompt",
       "path": "skills/email_writing_pro",
-      "sha256": "70eb7c2d5f66129810b00f493c7aefc2a675376eb83c6e4400757596cb2d30b6"
+      "sha256": "d7db533c355f4539c9b124cddee0a8d599c296c73b38191fbc187ceeda26a1fa"
     },
     {
       "name": "excel_dashboard",
@@ -30,7 +30,7 @@
       "author": "Maya Team",
       "type": "python",
       "path": "skills/excel_dashboard",
-      "sha256": "d430d3e972cfba43cd3ff421f3f0bc37d8216ecd0b7cc4cc1f82f7a5ca6ad405"
+      "sha256": "2261658157d9c9be7c170a147bc0891cdf8d15a71ab6e511dc33db0ab9a219dd"
     },
     {
       "name": "internet_speed_check",
@@ -39,7 +39,7 @@
       "author": "Maya Team",
       "type": "python",
       "path": "skills/internet_speed_check",
-      "sha256": "61ffb5c92e3a4e1175f87748663120bd94eead163280e23f6ef950d133739f58"
+      "sha256": "a8f6fd9d57907b91fe1ad02236becadfb79db733ee301f760db5b45e5f15ae51"
     },
     {
       "name": "interview_prep_coach",
@@ -48,7 +48,7 @@
       "author": "Maya Team",
       "type": "prompt",
       "path": "skills/interview_prep_coach",
-      "sha256": "7d1690ea4130ae1fd66995a66c5fab152ed40e5cbfdae6ef8045a1ee287cad73"
+      "sha256": "9423424f25977899f5f1521fe7f7b44ed67ac4f4bee0c0d059754ad7741552db"
     },
     {
       "name": "password_generator",
@@ -57,7 +57,7 @@
       "author": "Maya Team",
       "type": "python",
       "path": "skills/password_generator",
-      "sha256": "45bd5b705655723eb4adabae531d8477bee0d3ef66b39ca57a74a1f189113004"
+      "sha256": "fd251536e4362d213e1e3dfe53899c242a109fc0d31eb0192d1bed256919d778"
     },
     {
       "name": "pdf_maker",
@@ -66,7 +66,7 @@
       "author": "Maya Team",
       "type": "python",
       "path": "skills/pdf_maker",
-      "sha256": "dfa0a43856373eb6cb9abccfa80a723b182881c21c8e9c06a097942b0a3f139f"
+      "sha256": "bb6c32090217d1973711afb84a9eb7e3c1198aa39db301b6f73528d7d35f93a7"
     },
     {
       "name": "research_planner",
@@ -75,7 +75,7 @@
       "author": "Maya Team",
       "type": "prompt",
       "path": "skills/research_planner",
-      "sha256": "4053d418d7f233e89be452dba14c7cadda61c4c8083312c05085b863adf9ecb6"
+      "sha256": "edc6127776d05efb063a7b80d38e42fb2b5203b30cd8ac62d3b78edb9025e829"
     },
     {
       "name": "system_health_report",
@@ -84,7 +84,7 @@
       "author": "Maya Team",
       "type": "python",
       "path": "skills/system_health_report",
-      "sha256": "15d3a1bbbe49354b3b9ed3c89efd99070bee531f97646f110ac55de1af33494d"
+      "sha256": "cfc7a101c767eaa34572ef08a7a156fe69b8b11603dc95780408fad4ac192a5f"
     },
     {
       "name": "video_story_studio",
@@ -93,7 +93,7 @@
       "author": "Maya Team",
       "type": "prompt",
       "path": "skills/video_story_studio",
-      "sha256": "a0ee20f24a71a524e7eeb32b39c3e6395c33f5f3efdb63e434e9518b0c8bf987"
+      "sha256": "9e0dba1f7ab377d4135ead13f4d50d3a04757312886b2ca59e9a247f76f7624e"
     }
   ]
 }
